@@ -1,0 +1,87 @@
+SYSTEM
+
+MAIN.TS - INITIALIZATION : BOOTS THE APP : LOADS TEXTURES, UI ELEMENTS 
+
+STARFIELD.TS - VISUAL EFFECTS : THE BACKGROUND
+
+SLOTMACHINE.TS - GAME CONTROLLER : CORE OF THE GAME : BETTING, SPINNING, ANIMATIONS, GAME STATE
+
+REEL.TS - MANAGE ENTITY : COLUMN OF SLOT MACHINE : HANDLE SYMBOLS : DYNAMIC SCALING :
+
+CONFIG.TS - CONFIGURATION OF THE GAME : PAYLINE MATRIX :DEFINE CONSTANT VALUES : ASSET AND UI ELEMENTS
+
+CORE MECHANICS & GAME LOOP
+
+SPINNING -  5 SYMBOLS IN AN ARRAY IN A REEL : GSAP TO TWEEN : RANDOM ASSIGN TEXTURE
+
+BETTING - CAN TYPE OR + - : BLOCK WHEN SPINNING : AUTO SPIN STOPS WHEN NO BALANCE
+
+WIN VALID - GSAP COMPLETES ACIVATE REELSCOMPLETE() : COUNT SCATTER : LOOPS THROUGH PAYLINES ARRAY : EVALUATES WILD SYMBOL FROM L TO R : 
+
+FEEDBACK - WIINING SYKMBOLS HIGHLIGHTED : SAP SCALES IT 
+
+
+DEV 
+MASKING - FOR BETTER UI
+
+RESOLUTION - HANDLERESIZE() USE VIEPORT DIMENTIONS : RESPONSIVE
+
+Grid: 5 Reels × 3 Rows
+Paylines: 5 Fixed Lines
+-------------------------------
+Symbol Composition: 
+
+5 Low Symbols 
+3 High Symbols 
+1 Wild 
+1 Scatter 
+
+----------------------------------
+Payouts are calculated based on the Total Bet.
+
+1. Base Wins (3-of-a-Kind)
+
+        Symbol Tier     	        Base Multiplier (3 Matches)
+    LOW (Planets, Rocks)	              0.5x Total Bet
+    HIGH (Stars, Galaxy)	              2.0x Total Bet
+    WILD (Substitute)	                 10.0x Total Bet
+-----------------------------------
+
+2. Length Multipliers (The "Big Win" Logic)
+
+        Match Length                        Multiplier
+        3 Symbols                    1x (Standard Base Win)
+        4 Symbols                    5x (Big Win)
+        5 Symbols                    20x (Mega Win)
+-----------------------------------
+
+3. Total Win Table (Calculated)
+
+    Symbol      3 Matches (Common)          4 Matches (Uncommon)            5 Matches (Rare)
+    LOW             0.5x                           2.5x                           10x
+    HIGH            2.0x                           10x                            40x
+    WILD            10x                            50x                      2,000x (JACKPOT)
+-----------------------------------
+
+Jackpot
+
+The standard math is overridden if the player lands 5 Wilds on a valid payline.
+
+Trigger: 5 Consecutive Wilds.
+Payout: 2,000x Total Bet.
+-----------------------------------
+
+Scatter Free Spins
+
+Scatters pay in any position (they do not need to be on a payline line).
+
+Requirement: Land 3 or more Scatters anywhere on the screen.
+
+Reward: 10 Free Spins.
+
+Rules: Free spins are played automatically at the triggering bet amount but do not deduct from the balance.
+
+          Scatter Count                      Reward                  Math
+            3 Scatters                   10 Free Spins           Base Reward
+            4 Scatters                   15 Free Spins           Base + 5 Extra
+            5 Scatters                   20 Free Spins           Base + 10 Extra

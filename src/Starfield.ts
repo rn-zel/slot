@@ -31,7 +31,7 @@ export class Starfield {
         this.fov = 20;
         this.baseSpeed = 0.025;
         this.speed = 1;
-        this.warpSpeed = 225;
+        this.warpSpeed = 25;
         this.starStretch = 5;
         this.starBaseSize = .3;
         this.stars = [];

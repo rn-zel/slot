@@ -9,18 +9,18 @@ import { Starfield } from './Starfield';
   try {
     const app = new Application();
     await app.init({ 
-        background: 0x000000, 
+        // background: 0x000000, 
         resizeTo: window, 
         resolution: window.devicePixelRatio, 
         autoDensity: true 
     });
     document.body.appendChild(app.canvas);
 
-    // 1. Load your standard assets
+    //  Load standard assets
     await Assets.load([...ASSETS.TEXTURES, ...ASSETS.UI, ...ASSETS.VIDEOS]);
     
    
-    // 2. INITIALIZE STARFIELD BACKGROUND FIRST
+    // INITIALIZE STARFIELD 
    
     const starBackground = new Starfield(app);
     

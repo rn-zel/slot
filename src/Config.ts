@@ -12,12 +12,13 @@ export const CONFIG = {
     SYMBOL_MARGIN: 20,
 
     CONSOLE_Y: 390,     
-    SPIN_BTN_SIZE: 0.30,
+    SPIN_BTN_SIZE: 0.3,
 
     // UI Buttons
     BTN_SPIN_X: 0,
+    BTN_SPIN_Y: 790,
     BTN_AUTO_X: -367,       
-    BTN_AUTO_Y: 400,
+    BTN_AUTO_Y: 700,
     BTN_MENU_X: 845,    
     BTN_MINUS_X: -758,
     BTN_MINUS_Y: 395,     
@@ -31,6 +32,9 @@ export const CONFIG = {
 };
 
 export const PAYOUTS = {
+
+    MACHINE_SCALE: .7,
+
     CURRENT_BALANCE: 1000,
     BET_AMMOUNT: 100,
 
@@ -64,6 +68,19 @@ export const PAYLINES = [
     // [0,1,0,1,0],
     // [1,0,1,0,1]
 ];
+
+// export const REEL_BANDS = [
+   
+//     [0,0,0,0,1,1,1,2,2,3,3,4,4,5,6,7,8,9,0,1,2], 
+    
+//     [0,0,0,1,1,1,2,2,3,3,4,4,5,5,6,7,9,0,1,2,3], 
+    
+//     [0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,9,0,1,2], 
+    
+//     [0,0,1,1,2,2,3,3,4,4,5,5,6,7,8,9,0,1,2,3,4], 
+    
+//     [0,0,1,1,2,2,3,4,5,6,7,9,0,1,2,3,4,5,6,7,8]  
+// ];
 
 export const ASSETS = {
     TEXTURES: [
